@@ -1,0 +1,24 @@
+<%- include("header")%> <%- include("nav")%>
+
+<form
+  class="d-flex flex-column align-items-center justify-content-center mt-5"
+  action="/edit/<%= task.id%>"
+  method="post"
+>
+  <h3 class="align-items-start text-success fs-2 mt-5">
+    <span class="text-danger"> Create</span> task....
+  </h3>
+  <input class="w-25 fs-5 mt-2 fw-bold" type="text" name="title" placeholder="Title"  value="<%= task.title%>" />
+  <textarea
+    class="mt-2 fs-5 fw-bold"
+    cols="29"
+    rows="3"
+    name="desc"
+    placeholder="decsription....."
+  > <%= task.desc%></textarea>
+  <button class="bg-success text-white mt-2 w-25 fs-4 border border-white">
+    Add task
+  </button>
+</form>
+
+<%- include("footer")%>

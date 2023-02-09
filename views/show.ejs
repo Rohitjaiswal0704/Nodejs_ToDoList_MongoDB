@@ -1,0 +1,24 @@
+<%- include("nav")%>
+ <%- include("header")%> 
+<% if(tasks.length===0){%>
+<h3 class="text-danger text-center mt-5 fw-bold">No remaning task avilable.</h3>
+<%} %>
+
+<ol class="list-group list-group-numbered container mt-5">
+  <% tasks.forEach((task)=>{ %>
+  <li
+    class="list-group-item d-flex justify-content-between align-items-start border border-primary"
+  >
+    <div class="ms-2 me-auto">
+      <div class="fw-bold fs-4 text-success"><%= task.title%></div>
+      <span class="fw-bold"><%= task.desc.substr(0,25)%> .....|</span>
+      <span class="text-danger fw-bold"><%= task.Date.toLocaleDateString("en-US", { day: "numeric",
+        month: "long", year: "numeric", })%></span>
+    </div>
+    <span class="badge rounded-pill fs-5 "><a class="text-decoration-none" href="/edit/<%= task.id%>"><img src="https://img.icons8.com/cute-clipart/45/null/edit.png"/></a></span>
+    <span class="badge rounded-pill fs-5 "><a class="text-decoration-none" href="/delete/<%= task.id%>"><img src="https://img.icons8.com/cute-clipart/50/null/close-window.png"/></a></span>
+  </li>
+  <%})%>
+</ol>
+
+<%- include("footer")%>
